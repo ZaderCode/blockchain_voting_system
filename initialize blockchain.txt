@@ -1,0 +1,19 @@
+geth account new --datadir 01
+geth account new --datadir 02
+geth account new --datadir 03
+geth account new --datadir 04
+geth account new --datadir 05
+
+geth init genesis.json --datadir 01
+geth init genesis.json --datadir 02
+geth init genesis.json --datadir 03
+geth init genesis.json --datadir 04
+geth init genesis.json --datadir 05
+
+geth --datadir 01 --networkid 1234 --nat extip:127.0.0.1 --netrestrict 127.0.0.0/8 --mine --miner.threads=1 --miner.gasprice 0 --txpool.pricelimit 0 --miner.etherbase 0x54926A2bF931C667F7046b7B32770460a1d940cf --http --http.corsdomain https://remix.ethereum.org --http.api web3,eth,debug,personal,net --unlock 0x54926A2bF931C667F7046b7B32770460a1d940cf --password password.txt --allow-insecure-unlock
+geth --datadir 02 --ipcdisable --networkid 1234 --bootnodes "enr:-KO4QEJIHZu4rmde4sQLHt9O9dOyfVmzlJKKa8bTPoaU0-lVUs_ax_aUtxwsrwtTe8kLnjTHN5-c3J57SdspdZ-XYwiGAYEQLnItg2V0aMfGhPLclTSAgmlkgnY0gmlwhH8AAAGJc2VjcDI1NmsxoQINegVjvFKbvPslSOvah26GrmrEo6-mmqiL2lZn6jT60IRzbmFwwIN0Y3CCdl-DdWRwgnZf" --mine --miner.threads=1 --miner.gasprice 0 --txpool.pricelimit 0 --port 30307 --netrestrict 127.0.0.0/8 --unlock 0xa0EC2254Be5dd6F7118E34E28BcF66D9B20CF230 --password password.txt --allow-insecure-unlock
+geth --datadir 03 --ipcdisable --networkid 1234 --bootnodes "enr:-KO4QEJIHZu4rmde4sQLHt9O9dOyfVmzlJKKa8bTPoaU0-lVUs_ax_aUtxwsrwtTe8kLnjTHN5-c3J57SdspdZ-XYwiGAYEQLnItg2V0aMfGhPLclTSAgmlkgnY0gmlwhH8AAAGJc2VjcDI1NmsxoQINegVjvFKbvPslSOvah26GrmrEo6-mmqiL2lZn6jT60IRzbmFwwIN0Y3CCdl-DdWRwgnZf" --mine --miner.threads=1 --miner.gasprice 0 --txpool.pricelimit 0 --port 30308 --netrestrict 127.0.0.0/8 --unlock 0x0fcbC3Bb013f68D3975e6c7610f29c86EA0FFF17 --password password.txt --allow-insecure-unlock
+geth --datadir 04 --ipcdisable --networkid 1234 --bootnodes "enr:-KO4QEJIHZu4rmde4sQLHt9O9dOyfVmzlJKKa8bTPoaU0-lVUs_ax_aUtxwsrwtTe8kLnjTHN5-c3J57SdspdZ-XYwiGAYEQLnItg2V0aMfGhPLclTSAgmlkgnY0gmlwhH8AAAGJc2VjcDI1NmsxoQINegVjvFKbvPslSOvah26GrmrEo6-mmqiL2lZn6jT60IRzbmFwwIN0Y3CCdl-DdWRwgnZf" --mine --miner.threads=1 --miner.gasprice 0 --txpool.pricelimit 0 --port 30309 --netrestrict 127.0.0.0/8 --unlock 0x7F0Fc9fB8cd31539cf5851D6052dc02a3a929CcC --password password.txt --allow-insecure-unlock
+geth --datadir 05 --ipcdisable --networkid 1234 --bootnodes "enr:-KO4QEJIHZu4rmde4sQLHt9O9dOyfVmzlJKKa8bTPoaU0-lVUs_ax_aUtxwsrwtTe8kLnjTHN5-c3J57SdspdZ-XYwiGAYEQLnItg2V0aMfGhPLclTSAgmlkgnY0gmlwhH8AAAGJc2VjcDI1NmsxoQINegVjvFKbvPslSOvah26GrmrEo6-mmqiL2lZn6jT60IRzbmFwwIN0Y3CCdl-DdWRwgnZf" --mine --miner.threads=1 --miner.gasprice 0 --txpool.pricelimit 0 --port 30310 --netrestrict 127.0.0.0/8 --unlock 0xC8941854475ef8EAf6c7bf4Fa691E9f13092bdf7 --password password.txt --allow-insecure-unlock
+
+
