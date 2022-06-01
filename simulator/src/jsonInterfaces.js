@@ -2,6 +2,11 @@ var electionInterface = [
 	{
 		"inputs": [
 			{
+				"internalType": "string",
+				"name": "key",
+				"type": "string"
+			},
+			{
 				"internalType": "uint256",
 				"name": "startTimestamp",
 				"type": "uint256"
@@ -25,7 +30,7 @@ var electionInterface = [
 				"type": "uint256"
 			}
 		],
-		"name": "PartyCounterEvent",
+		"name": "PartyIdEvent",
 		"type": "event"
 	},
 	{
@@ -51,7 +56,7 @@ var electionInterface = [
 				"type": "uint256"
 			}
 		],
-		"name": "RegionCounterEvent",
+		"name": "RegionIdEvent",
 		"type": "event"
 	},
 	{
@@ -208,19 +213,6 @@ var electionInterface = [
 	},
 	{
 		"inputs": [],
-		"name": "getModificationsLocked",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "getPartiesIDList",
 		"outputs": [
 			{
@@ -338,13 +330,6 @@ var electionInterface = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "lockModifications",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -365,61 +350,12 @@ var electionInterface = [
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "regionID",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address[]",
-				"name": "managers",
-				"type": "address[]"
+				"internalType": "string",
+				"name": "key",
+				"type": "string"
 			}
 		],
-		"name": "removeManagerListFromRegion",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256[]",
-				"name": "partyList",
-				"type": "uint256[]"
-			}
-		],
-		"name": "removePartyList",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256[]",
-				"name": "regionList",
-				"type": "uint256[]"
-			}
-		],
-		"name": "removeRegionList",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "regionID",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string[]",
-				"name": "citizensIDList",
-				"type": "string[]"
-			}
-		],
-		"name": "unregisterCitizenList",
+		"name": "setDecryptKey",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -429,6 +365,11 @@ var electionInterface = [
 var electionRegionInterface = [
 	{
 		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "regionID",
+				"type": "uint256"
+			},
 			{
 				"internalType": "string",
 				"name": "regionName",
@@ -542,6 +483,11 @@ var electionRegionInterface = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "managerAddress",
+				"type": "address"
+			},
+			{
 				"internalType": "string",
 				"name": "citizenID",
 				"type": "string"
@@ -586,6 +532,19 @@ var electionRegionInterface = [
 				"internalType": "string[]",
 				"name": "",
 				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getID",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -683,32 +642,6 @@ var electionRegionInterface = [
 			}
 		],
 		"name": "registerCitizenList",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address[]",
-				"name": "managers",
-				"type": "address[]"
-			}
-		],
-		"name": "removeManagerList",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string[]",
-				"name": "citizensIDList",
-				"type": "string[]"
-			}
-		],
-		"name": "unregisterCitizenList",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"

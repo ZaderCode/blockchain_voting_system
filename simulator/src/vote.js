@@ -2,17 +2,17 @@ import { BigNumber } from '@ethersproject/bignumber';
 import { web3 } from '.';
 
 const createBigNumber = (option, parties) => {
-  let binaryNumber = '';
-  for(let i = 0; i < 256; i++) {
-    binaryNumber += Math.floor(Math.random() * 2);
+  let hexNumber = '0x';
+  for(let i = 0; i < 64; i++) {
+    hexNumber += parseInt(Math.floor(Math.random() * 16)).toString(16);
   }
-  let greaterID = parties.reduce((max, party) => max = max > party.id ? max : party.id);
-  let bn = BigNumber.from(binaryNumber.toString(16));
-  while(!bn.mod(greaterID + 1).eq(option)) {
+  let greatestID = parties.reduce((max, party) => max = max > party.id ? max : party.id);
+  let bn = BigNumber.from(hexNumber);
+  while(!bn.mod(greatestID + 1).eq(option)) {
     bn = bn.add(1);
     if(bn.gt(BigNumber.from(2).pow(256))) bn = BigNumber.from(0);
   };
-  return bn.toString();
+  return bn;
 };
 
 const vote = async (electionContract, regions, parties, key) => {
@@ -26,7 +26,7 @@ const vote = async (electionContract, regions, parties, key) => {
 			await electionContract.methods
         .castVote(regions[i].id, encryptedVote)
         .send({from: regions[i].voters[j], gasPrice: 1});
-			console.log(`Voter ${regions[i].voters[j]} has voted for option ${chosenOption} with the alternative number ${bn}. Encrypted vote results is: ${encryptedVote}`);
+			console.log(`Voter ${regions[i].voters[j]} has voted for option ${parties[chosenOption].id} with the big number ${bn}. Encrypted vote results is: ${encryptedVote}\n`);
    }
   }
 };

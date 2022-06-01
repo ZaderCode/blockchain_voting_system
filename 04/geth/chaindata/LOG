@@ -1,0 +1,32 @@
+=============== Jun 1, 2022 (CEST) ===============
+17:56:27.111459 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:56:27.116368 db@open opening
+17:56:27.117366 version@stat F·[] S·0B[] Sc·[]
+17:56:27.118365 db@janitor F·2 G·0
+17:56:27.118365 db@open done T·1.9964ms
+17:56:27.151410 db@close closing
+17:56:27.151950 db@close done T·540.6µs
+=============== Jun 1, 2022 (CEST) ===============
+17:56:50.541430 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:56:50.541936 version@stat F·[] S·0B[] Sc·[]
+17:56:50.541973 db@open opening
+17:56:50.541973 journal@recovery F·1
+17:56:50.544141 journal@recovery recovering @1
+17:56:50.546928 memdb@flush created L0@2 N·13 S·1KiB "H,(..A\f\xf8,v6":"\xab\x87\xf7..\xde[$,v2"
+17:56:50.549665 version@stat F·[1] S·1KiB[1KiB] Sc·[0.25]
+17:56:50.556054 db@janitor F·3 G·0
+17:56:50.556054 db@open done T·14.0815ms
+17:59:38.826370 db@close closing
+17:59:38.826892 db@close done T·522.8µs
+=============== Jun 1, 2022 (CEST) ===============
+17:59:44.234301 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:59:44.234301 version@stat F·[1] S·1KiB[1KiB] Sc·[0.25]
+17:59:44.234301 db@open opening
+17:59:44.234301 journal@recovery F·1
+17:59:44.236311 journal@recovery recovering @3
+17:59:44.239332 memdb@flush created L0@5 N·95 S·24KiB "*j\x93..\xfbt\xac,v105":"\xefhU..Jsc,v108"
+17:59:44.242324 version@stat F·[2] S·25KiB[25KiB] Sc·[0.50]
+17:59:44.248307 db@janitor F·4 G·0
+17:59:44.248307 db@open done T·14.006ms
+22:35:08.578811 db@close closing
+22:35:08.579790 db@close done T·979.4µs

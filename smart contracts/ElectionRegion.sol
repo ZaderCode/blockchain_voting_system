@@ -2,8 +2,6 @@
 
 pragma solidity ^0.8.0;
 
-import "./ArrayLibrary.sol";
-
 contract ElectionRegion {
 
     /* The owner of this contract and who has special permissions over it */
@@ -11,6 +9,9 @@ contract ElectionRegion {
 
     /* The region name */
     string private name;
+
+    /* The region ID */
+    uint id;
 
     /*
     Managers addresses can perform some special actions in order to administrate the course of an election, 
@@ -44,7 +45,7 @@ contract ElectionRegion {
 
     /* Restricts function calls to the owner address */
     modifier onlyOwner {
-        require(msg.sender == owner, "Operation restricted to ownerr");
+        require(msg.sender == owner, "Operation restricted to owner");
         _;
     }
 
@@ -100,9 +101,10 @@ contract ElectionRegion {
         _;
     }
 
-    constructor(string memory regionName) {
+    constructor(uint regionID, string memory regionName) {
         owner = msg.sender;
         name = regionName;
+        id = regionID;
         
         managerList = new address[](0);
         votersList = new address[](0);
@@ -208,5 +210,10 @@ contract ElectionRegion {
     /* Returns the name of this region */
     function getName() external view returns(string memory) {
         return name;
+    }
+
+    /* Returns the ID of this region */
+    function getID() external view returns(uint) {
+        return id;
     }
 }

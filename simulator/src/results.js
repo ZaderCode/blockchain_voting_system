@@ -1,5 +1,7 @@
+import { BigNumber } from "@ethersproject/bignumber";
+
 const results = async (electionContract, parties, regions, key) => {
-  console.log('---------- RESULTS ----------');
+  console.log('---------- RESULTS ----------\n');
 	
 	let results = {};
   parties.forEach(party => {
@@ -20,8 +22,8 @@ const results = async (electionContract, parties, regions, key) => {
 
     for(let j = 0; j < votes.length; j++) {
 			console.log(`\t\t- Encrypted vote: ${votes[i]}`);
-      vote = key.decrypt(votes[j], 'utf8');
-      vote = vote % (maxID + 1);
+      let vote = key.decrypt(votes[j], 'utf8');
+      vote = BigNumber.from(vote).mod(maxID + 1);
 			console.log(`\t\t- Decrypted vote: ${vote}\n`);
       results[vote]++;
     }

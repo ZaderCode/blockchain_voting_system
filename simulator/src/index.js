@@ -14,7 +14,6 @@ const provider = process.env.WEB3_PROVIDER;
 const web3Provider = new Web3.providers.HttpProvider(provider);
 const web3 = new Web3(web3Provider);
 
-const ownerAddress = process.env.WEB3_OWNER_ADDRESS;
 const smartContractAddress = process.env.WEB3_SC_ADDRESS;
 const electionContract = new web3.eth.Contract(electionInterface, smartContractAddress);
 
@@ -31,7 +30,7 @@ async function runElectionSimulation() {
 		setTimeout(() => {
 			console.log('Election started!\n');
 			resolve();
-		}, Math.floor(startTimestamp - Date.now() / 1000) * 1000);
+		}, Math.floor(startTimestamp - Date.now() / 1000 + 1) * 1000);
 	});
 
 	// Second phase: voter authentication
@@ -44,6 +43,18 @@ async function runElectionSimulation() {
 	// Fourth phase: voting
 	// All account addresses now cast their votes
 	await vote(electionContract, regions, parties, key);
+
+	// Wait until election ends
+	const endTimestamp = await electionContract.methods
+		.getEndTimestamp()
+		.call();
+	console.log(`\nWaiting for elections to end... (${Math.floor(endTimestamp - Date.now() / 1000)} seconds)`);
+	await new Promise(resolve => {
+		setTimeout(() => {
+			console.log('Election ended!\n');
+			resolve();
+		}, Math.floor(endTimestamp - Date.now() / 1000 + 1) * 1000);
+	});
 
 	// Fifth phase: results
 	const electionResults = await results(electionContract, parties, regions, key);

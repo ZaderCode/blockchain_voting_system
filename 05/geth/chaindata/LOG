@@ -1,0 +1,32 @@
+=============== Jun 1, 2022 (CEST) ===============
+17:56:28.194696 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:56:28.203028 db@open opening
+17:56:28.206342 version@stat F·[] S·0B[] Sc·[]
+17:56:28.209627 db@janitor F·2 G·0
+17:56:28.209959 db@open done T·6.9306ms
+17:56:28.251826 db@close closing
+17:56:28.251826 db@close done T·0s
+=============== Jun 1, 2022 (CEST) ===============
+17:56:54.495178 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:56:54.496153 version@stat F·[] S·0B[] Sc·[]
+17:56:54.496153 db@open opening
+17:56:54.496153 journal@recovery F·1
+17:56:54.498117 journal@recovery recovering @1
+17:56:54.500112 memdb@flush created L0@2 N·13 S·1KiB "H,(..A\f\xf8,v6":"\xab\x87\xf7..\xde[$,v2"
+17:56:54.502108 version@stat F·[1] S·1KiB[1KiB] Sc·[0.25]
+17:56:54.509156 db@janitor F·3 G·0
+17:56:54.509156 db@open done T·13.0029ms
+17:59:48.653392 db@close closing
+17:59:48.653392 db@close done T·0s
+=============== Jun 1, 2022 (CEST) ===============
+17:59:56.033810 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:59:56.034862 version@stat F·[1] S·1KiB[1KiB] Sc·[0.25]
+17:59:56.034862 db@open opening
+17:59:56.034862 journal@recovery F·1
+17:59:56.037519 journal@recovery recovering @3
+17:59:56.040962 memdb@flush created L0@5 N·23 S·1KiB "Dat..ion,v16":"unc..own,v24"
+17:59:56.044664 version@stat F·[2] S·2KiB[2KiB] Sc·[0.50]
+17:59:56.052194 db@janitor F·4 G·0
+17:59:56.052194 db@open done T·17.3319ms
+22:35:10.291239 db@close closing
+22:35:10.291754 db@close done T·515.8µs

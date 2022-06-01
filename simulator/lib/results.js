@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.results = void 0;
 
+var _bignumber = require("@ethersproject/bignumber");
+
 const results = async (electionContract, parties, regions, key) => {
   console.log('---------- RESULTS ----------');
   let results = {};
@@ -21,8 +23,8 @@ const results = async (electionContract, parties, regions, key) => {
 
     for (let j = 0; j < votes.length; j++) {
       console.log("\t\t- Encrypted vote: ".concat(votes[i]));
-      vote = key.decrypt(votes[j], 'utf8');
-      vote = vote % (maxID + 1);
+      let vote = key.decrypt(votes[j], 'utf8');
+      vote = _bignumber.BigNumber.from(vote).mod(maxID + 1);
       console.log("\t\t- Decrypted vote: ".concat(vote, "\n"));
       results[vote]++;
     }
